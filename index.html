@@ -6,13 +6,19 @@
     <script type="text/javascript" src="vue.js"></script>
   </head>
   <body>
-    <div id="app">{{message}}</div>
-    <!-- built files will be auto injected -->
+    <div id="app">
+	    {{message}}<!--   hello world -->
+    	<!-- built files will be auto injected -->
+    	<input type="text" v-model="bind"> {{bind}}<!-- 双向数据绑定  v-model -->  
+    </div>
   </body>
   <script type="text/javascript">
   	new Vue({
 	  el: '#app',
-	  data:{message:"hello world!"}
+	  data:{
+		  message:"hello world!",
+		  bind:"测试双向数据绑定",
+	  }
 	})
   </script>
 </html>
