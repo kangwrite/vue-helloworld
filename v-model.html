@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+</head>
+<body>
+    <script src="vue2.4.js"></script>
+    <div id="app"><input type="text" v-model="msg"> {{msg}}  {{msg=='测试绑定'?200:msg}}</div>
+    <!-- 在表达式里加引号为字符串，否则为变量   表达式内可以写三元表达式，可以赋值，可以运算，但不可进行逻辑语句 -->
+    <!-- v-model 为双向数据绑定，要双向数据绑定，必须满足视图是可更改的，表单元素。  v-once -2.0  {{*msg}}  -1.0-->
+    <!-- 如果绑定的内容值为html，则使用v-html,否则会原封不动的输出标签内容   －2.0   {{{msg}}} -1.0-->
+    <div v-html="msg">{{msg}}</div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'测试绑定'
+            }
+        })
+    </script>
+</body>
+</html>
