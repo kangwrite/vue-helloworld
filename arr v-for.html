@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="vue2.4.js"></script>
+    <div id="app">
+
+        <!--<ul>
+            &lt;!&ndash;1.0 要循环谁，就在谁身上写v－for   a代表arr中的某一个
+                遍历数组时，需要增加track－by＝$index 防止数据相同报错 &ndash;&gt;
+            <li v-for="(index,val) in arr" track-by="$index">{{index}} {{val}}  {{$index}}</li>
+        </ul>-->
+
+        <ul>
+            <!-- 2.0  没有声明过的$index不能使用，track－by也被废弃
+                同时在声明循环时，同js代码的for－each一样，（item，index,先为value，后为key -->
+            <li v-for="(val,index) in arr" >{{val}}  {{index}} </li>
+        </ul>
+
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'test',
+                arr:['iphone6','iphone7','iphone6']
+            }
+        })
+    </script>
+</body>
+</html>
