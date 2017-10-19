@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show</title>
+</head>
+<body>
+<script src="vue2.4.js"></script>
+<div id="app">
+    <!-- v-show  只是样式上隐藏
+        v-if  是对dom操作，元素直接删除,注意在使用时的场景
+    -->
+   <div v-show="flag">是否为true，为true则显示，否则消失</div>
+    <div v-if="flag2">是否为true，为true则显示，否则消失</div>
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            iphoneArr: ['iphone5', 'iphone6'],
+            flag:true,
+            flag2:false
+        }
+    })
+</script>
+</body>
+</html>
