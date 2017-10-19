@@ -20,13 +20,32 @@
             <li v-for="(val,index) in arr" >{{val}}  {{index}} </li>
         </ul>
 
+        <ul>
+            <!-- 1.0
+            val 代表obj中具体的值，不是key ，&key  对应的时key  或者 v－for（key，value）in obj
+            如果不遍历，对象将直接tostring然后输出  object，object
+            -->
+            <li v-for="(key,value) in obj">{{key}} {{value}} {{$key}}</li>
+
+
+            <!--2.0 没有声明过的不能直接使用
+            同数组循环一样，都是 由key，value 变为value，key的组合形式
+            -->
+            <li v-for="(val,key) in obj">{{val}}</li>
+        </ul>
+        
     </div>
     <script>
         new Vue({
             el:'#app',
             data:{
                 msg:'test',
-                arr:['iphone6','iphone7','iphone6']
+                arr:['iphone6','iphone7','iphone6'],
+                obj:{
+                    name:'connie',
+                    age:'27',
+                    address:'立水桥'
+                }
             }
         })
     </script>
