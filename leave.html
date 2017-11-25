@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="vue.js">留言板</script>
+    <style>
+        [v-cloak]{
+            display:none
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <!-- <tip>
+            @event  绑定事件
+            methods内自定义方法
+            v-cloak 数据在加载完成后，此属性会自动移除
+        </tip>-->
+        <div class="container">
+            <form class="form">
+                <label>留言板</label>
+                <div class="form-group">
+                    <label for="title" class="control-label">标题</label>
+                    <input type="text" id="title" v-model="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="content" class="control-label">内容</label>
+                    <textarea class="form-control" id="content" v-model="content"></textarea>
+                </div>
+                <button type="button" class="btn-primary" @click="send">发表留言</button>
+            </form>
+           <div class="form-group" v-cloak>
+               <div class="form-control" v-for="chart in charts">
+                   <label class="control-label">标题：</label>
+                   <label class="control-label">{{chart.title}}</label>
+                   <label class="control-label">内容：</label>
+                   <label class="control-label">{{chart.content}}</label>
+               </div>
+           </div>
+        </div>
+    </div>
+<script>
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            title:'',
+            content:'',
+            charts:[{
+                title:'第一次的留言',
+                content:'木子同学这头猪还在睡觉'
+            },{
+                title:'第二次的留言',
+                content:'刚刚我一动，把他踹醒了'
+            },{
+                title:'第三次的留言',
+                content:'结果人家一翻身，又睡过去了'
+            },]
+        },
+        methods:{
+            send(){
+                this.charts.push({title:this.title,content:this.content})
+            }
+        }
+    })
+</script>
+</body>
+</html>
