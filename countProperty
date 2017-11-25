@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="vue.js">计算属性</script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+       <!-- <tip>
+            计算属性 需要在computed属性中定义，可以获取属性值，也可以通过设置值，来改变相关属性的值
+
+            常用属性
+            vm.$el      当前元素
+            vm.$data    当前示例上挂载的数据
+            vm.$options 获取实例上自定义的属性
+            vm.$watch   监控实例上数据的变化
+        </tip>-->
+        <div class="container">
+            <form class="form">
+                <label>计算属性</label>
+                <div class="form-group">
+                    <label for="price" class="control-label">单价</label>
+                    <input type="text" id="price" v-model="price" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="num" class="control-label">数量</label>
+                    <textarea class="form-control" id="num" v-model="num"></textarea>
+                </div>
+                <button type="button" class="btn-primary" @click="count">计算</button>
+            </form>
+           <div class="form-group">
+               <div class="form-control" >
+                   <label class="control-label">单价：</label>
+                   <label class="control-label">{{price}}</label>
+                   <label class="control-label">数量：</label>
+                   <label class="control-label">{{num}}</label>
+                   <label class="control-label">总价：</label>
+                   <label class="control-label">{{total}}</label>
+               </div>
+           </div>
+        </div>
+    </div>
+<script>
+    var vm =  new Vue({
+        el:"#app",
+        v:1,
+        data:{
+            price:20,
+            num:10
+        },
+        computed:{
+           /* total:function () {
+                return this.price * this.num;
+            },*/
+            total:{
+                get:function(){
+                    return this.price * this.num;
+                },
+                set:function(total){
+                    this.num = total/this.price;
+                }
+            }
+        },
+        methods:{
+            count(){
+                vm.total = 800;
+            }
+        }
+    });
+    vm.$watch('total',function (newValue,oldValue) {
+        console.info(newValue)
+    })
+    setTimeout(function(){
+        vm.total = 900;
+    },5000);
+    vm.total=700;
+    console.info(vm.$data)
+</script>
+</body>
+</html>
