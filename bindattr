@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="vue.js">事件绑定</script>
+    <style>
+        .color1{
+            color:green;
+        }
+        .color2{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <!-- <tip>
+        v-bind:attr = data;  动态绑定元素的属性
+
+        动态绑定class和style，常用的为2种：通过对象和数组来绑定
+        :class 动态绑定元素的class时，需要计算的class，要通过对象｛｝进行计算获取，或者使用数组的方式，将需要设置的属性放入数组［］中
+        同理，通过对象动态绑定style时，将json串放入对象中，通过数组动态绑定style时，是将json串放入数组元素的值中
+        </tip>-->
+
+        <img :src="src" :width="width">
+        <div :class="{color1:color1,color2:!color1}">boolean 动态绑定元素class类</div>
+        <div :class="[colorP1,colorP2]" >数组形式动态绑定class</div>
+
+
+        <div :style="{background:'green'}">行内样式对象绑定style</div>
+        <div :style="[a,b]">行内样式数组绑定style</div>
+    </div>
+<script>
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            src:"img/web_page.png",
+            width:200,
+            color1:true,
+            colorP1:'color1',
+            colorP2:'color1',
+            a:{fontSize:'20px',color:'pink'},
+            b:{backgroundColor:'yellow'}
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>
+</html>
