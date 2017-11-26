@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="vue.js">事件绑定</script>
+</head>
+<body>
+    <div id="app">
+       <!-- <tip>
+        @event.prevent 阻止默认事件
+        @event.stop 停止冒泡 阻止事件传播
+        @keyenent.keycode/keyname 事件修饰符，确定具体的监听事件类型
+        </tip>-->
+        <a href = "http://www.baidu.com" @click.prevent="jump">跳转到百度</a>
+        <input type="text" v-model="content" />
+
+        <div @click="father">
+            父元素
+            <div @click.stop="child">
+                子元素
+            </div>
+        </div>
+
+        <input @keydown.enter="entered" />
+    </div>
+<script>
+    var vm =  new Vue({
+        el:"#app",
+        data:{
+            content:''
+        },
+        methods:{
+            jump(){
+                this.content = "跳转前还是跳转后呢？";
+            },
+            father(){
+                alert("parent");
+            },
+            child(){
+                alert("child");
+            },
+            entered(){
+                alert("回车事件");
+            }
+        }
+    })
+</script>
+</body>
+</html>
