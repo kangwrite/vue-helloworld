@@ -1,1 +1,20 @@
-个人mac下vue环境的搭建总结
+个人mac下vue环境的使用心得
+
+1、安装node环境
+在官网下载最新版的mac os下node安装包，旧版的我没用过，新版的安装后是自带npm的
+
+2、npm
+npm是node的包管理工具，利用npm来进行node和vue等环境的安装，怕npm不稳定，可以再安装淘宝的镜像，我没有处理
+
+3、vue环境
+利用npm安装vue
+npm install vue
+安装路径是/usr/local/bin ，此处有需要注意的地方，mac下搜索可以用spotlight来输入路径搜索，此处搜索路径不能遗忘文件夹名称前的“/”
+安装完成后，node -v、npm-v、vue-v 可以查看安装环境的版本
+
+至此可以通过写html文件引入vue.js来开发；
+另外，使用webstorm开发时，内置的终端也可以进行npm安装，如vue开发时需要引用的bootstrap、vue-resource，
+后期可能用到的打包工具（gulp、webpack），都可以通过终端安装引用使用
+如：npm install vue-resource
+
+未完待续
