@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="vue.js"></script>
+    <script src="vue-resource.js"></script>
+</head>
+<body>
+
+    <!--
+        此页面时对vue请求、页面样式等对较综合应用
+        @keyup.38.prevent  通过修饰符绑定特定事件切阻止默认行为（阻止光标移动）
+        ：class 绑定样式
+        v-for="(value,key) in datas" 循环属性
+
+        $.http是使用vue－resource的http模块，.then表明请求为promise,同时发送李jsonp请求
+    -->
+    <div id="app">
+        <label class="control-label form-inline">搜索一下：</label>
+        <input class="input-group form-inline" type="text" v-model="keyword" placeholder="输入搜索内容" @keyup="print" @keydown.38.prevent="up" @keydown.40.prevent="down" />
+
+        <ul class="list-group" >
+            <li class="list-group-item" :class="{active:index==key}" v-for="(value,key) in datas">{{value}}</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                keyword:'',
+                index:-1,
+                datas:[]
+            },
+            methods:{
+                print:function(e){
+                    if(e.keyCode == 38 || e.keyCode==40)return;
+                    if(e.keyCode == 13){
+                        window.open("https://www.baidu.com/s?wd=" + this.keyword);
+                    };
+
+                    this.$http.jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",{
+                        params:{
+                            wd:this.keyword
+                        },
+                        jsonp:"cb"
+                    }).then(function(res){
+                        this.datas = res.body.s;
+                    })
+
+                },
+                up:function(){
+                    if(this.index<=0){
+                        this.index = this.datas.length-1;
+                    }else{
+                        this.index--;
+                    }
+                    this.keyword = this.datas[this.index];
+                },
+                down:function () {
+                    if(this.index== this.datas.length-1){
+                        this.index = 0;
+                    }else{
+                        this.index++;
+                    }
+                    this.keyword = this.datas[this.index];
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
