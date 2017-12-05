@@ -1,3 +1,6 @@
+2017.12.05
+在vue环境出现问题后，补一下vue、node、npm在mac下的环境说明
+
 # vue-helloworld
 0829-hello world
 
