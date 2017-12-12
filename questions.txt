@@ -1,0 +1,11 @@
+
+1、webpack热加载的实现机制
+服务器通信机制
+
+2、vue diff算法
+
+3、vue css里面的scoped属性是怎么做区分的
+增加自定义属性
+
+
+TBC
