@@ -5,6 +5,8 @@
 
 2、npm
 npm是node的包管理工具，利用npm来进行node和vue等环境的安装，怕npm不稳定，可以再安装淘宝的镜像，我没有处理
+npm是node package manager: node的包管理工具
+npm去上传自己的package，或者下载其他人分享的pavkage
 
 3、vue环境
 利用npm安装vue
@@ -17,4 +19,7 @@ npm install vue
 后期可能用到的打包工具（gulp、webpack），都可以通过终端安装引用使用
 如：npm install vue-resource
 
+vue的CLI 是指vue的command line interface:命令行接口，通过CLI去安装需要的包
+
 未完待续
+babel、webpack、vue-router、VUEX
