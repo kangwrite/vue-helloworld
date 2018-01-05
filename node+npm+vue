@@ -7,12 +7,14 @@
 npm是node的包管理工具，利用npm来进行node和vue等环境的安装，怕npm不稳定，可以再安装淘宝的镜像，我没有处理
 npm是node package manager: node的包管理工具
 npm去上传自己的package，或者下载其他人分享的pavkage
+目前npm是跟随node一起进行安装的，但是npm的升级比node更频繁，因此可以使用npm install npm@latest -g命令，来升级npm版本
 
 3、vue环境
 利用npm安装vue
 npm install vue
 安装路径是/usr/local/bin ，此处有需要注意的地方，mac下搜索可以用spotlight来输入路径搜索，此处搜索路径不能遗忘文件夹名称前的“/”
 安装完成后，node -v、npm-v、vue-v 可以查看安装环境的版本
+
 
 至此可以通过写html文件引入vue.js来开发；
 另外，使用webstorm开发时，内置的终端也可以进行npm安装，如vue开发时需要引用的bootstrap、vue-resource，
