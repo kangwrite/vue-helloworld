@@ -23,5 +23,12 @@ npm install vue
 
 vue的CLI 是指vue的command line interface:命令行接口，通过CLI去安装需要的包
 
+4、package.json
+package.json中是打包需要的信息，如name、version
+使用命令  npm init --yes 来生成一个默认的package.json文件
+package.json中的dependencies为生产环境中项目需要依赖的package，
+devDependencies为开发和测试环境中项目需要依赖的包。
+npm uninstall <package>命令用于在node_modules 文件夹中解除对包的依赖，npm uninstall --save <package>删除package.json文件中的相关信息
+
 未完待续
 babel、webpack、vue-router、VUEX
