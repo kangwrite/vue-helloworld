@@ -22,6 +22,8 @@ npm install vue
 如：npm install vue-resource
 
 vue的CLI 是指vue的command line interface:命令行接口，通过CLI去安装需要的包
+例如通过vue cli安装一个基于webpack的vue项目，vue init webpack Vue-Project，然后对项目命名以后，进入项目
+npm install 安装依赖，npm run dev，来启动项目，npm run build项目来进行gulp打包
 
 4、package.json
 package.json中是打包需要的信息，如name、version
